@@ -1,10 +1,23 @@
-#Step 1
-
 inventory = 0;
 
 while True:
-    quantity = input("Enter Stock Quantity: ")
+    stock = input("Enter Stock Quantity(or 'quit'): ")
 
-    if quantity == "quit":
+    if stock.lower() == "quit":
         break
+
+
+    if stock.startswith("-") and stock[1:].isdigit():
+        print("Stock cannot be a negative number!")
+        continue
+
+
+    if not stock.isdigit():
+        print("Error! Please enter a valid number! ")
+        continue
+
+    stock = int(stock)
+
+
+
 
