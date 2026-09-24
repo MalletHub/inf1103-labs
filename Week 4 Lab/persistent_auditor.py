@@ -1,6 +1,3 @@
-
-
-
 inventory = 0
 failed_attempts = 0
 
@@ -8,13 +5,21 @@ failed_attempts = 0
 def load_inventory():
     try:
         with open("inventory.txt", "r") as f:
-            inventory = int(f.read())
+            inventory = int(f.readline())
             return inventory
         
     except FileNotFoundError:
         return 0
 
-    
+
+
+
+def save_inventory(inventory,transactions):
+
+    with open("inventory.txt", "w") as f:
+        f.write(str(inventory) + "\n")
+        f.write(str(transactions))
+
 
 def get_valid_input():
     global failed_attempts
@@ -62,31 +67,26 @@ while True:
     
     stock = get_valid_input()
     if stock is None:
+        save_inventory(inventory,transactions)
         break
 
     transactions.append(stock)
 
 
-    print(transactions)
-
 
     inventory = process_delivery(inventory, stock)
     print(f"Current Total Inventory: {inventory}")
     print(f"Tax $: {calculate_tax(stock):.2f}")
-
-    tax_amount = calculate_tax(stock)
    
 
     if inventory > 500:
         print("Stock exceeded 500!")
+        save_inventory(inventory, transactions)
         break
     
 
 
     
-      
-
-
 
 generate_report(inventory, failed_attempts) 
 
