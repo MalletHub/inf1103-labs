@@ -67,6 +67,9 @@ while True:
     transactions.append(stock)
 
 
+    print(transactions)
+
+
     inventory = process_delivery(inventory, stock)
     print(f"Current Total Inventory: {inventory}")
     print(f"Tax $: {calculate_tax(stock):.2f}")
