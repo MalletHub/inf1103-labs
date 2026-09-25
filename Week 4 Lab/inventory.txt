@@ -1,2 +1,7 @@
-510
-[10, 500]
+1001,Screwdriver,10
+1002,Pallet,15
+1003,Keychain,10
+1004,Goat Milk,50
+1005,Shampoo,10
+1006,Oat Milk,75
+1007,Banana Milk Shake,100
